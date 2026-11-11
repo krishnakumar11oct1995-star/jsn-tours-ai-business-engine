@@ -1,0 +1,33 @@
+{
+  "brand_name": "Jai Srimannarayana Tours & Travels",
+  "founder": "Ramesh",
+  "contact_phone": "9030780132",
+  "whatsapp_hotline": "https://wa.me/919030780132",
+  "youtube_channel": "https://www.youtube.com/@telugutravellerramesh5846",
+  "live_site_url": "https://jaisrimannarayana.netlify.app",
+  "hosting_provider": "Netlify",
+  "hosting_plan": "Starter (Free Tier with Free HTTPS/SSL & Global CDN)",
+  "netlify_site_id": "c66ad720-d2e0-49d8-9f02-ad9e55ea3a53",
+  "status_badge_url": "https://api.netlify.com/api/v1/badges/c66ad720-d2e0-49d8-9f02-ad9e55ea3a53/deploy-status",
+  "local_source_folder": "website_hostinger",
+  "local_archive_zip": "website_hostinger.zip",
+  "key_live_routes": {
+    "homepage": "https://jaisrimannarayana.netlify.app/",
+    "destinations_catalog": "https://jaisrimannarayana.netlify.app/destinations/",
+    "budget_calculator": "https://jaisrimannarayana.netlify.app/calculator/",
+    "kashi_varanasi": "https://jaisrimannarayana.netlify.app/destinations/india/uttar-pradesh/kashi-varanasi/",
+    "kedarnath": "https://jaisrimannarayana.netlify.app/destinations/india/uttarakhand/kedarnath/",
+    "badrinath": "https://jaisrimannarayana.netlify.app/destinations/india/uttarakhand/badrinath/",
+    "ayodhya": "https://jaisrimannarayana.netlify.app/destinations/india/uttar-pradesh/ayodhya/",
+    "arunachalam": "https://jaisrimannarayana.netlify.app/destinations/india/tamil-nadu/arunachalam-tiruvannamalai/",
+    "muktinath_nepal": "https://jaisrimannarayana.netlify.app/destinations/nepal/gandaki/muktinath-nepal/",
+    "tirupati": "https://jaisrimannarayana.netlify.app/destinations/india/andhra-pradesh/tirupati-balaji/",
+    "ujjain": "https://jaisrimannarayana.netlify.app/destinations/india/madhya-pradesh/ujjain-mahakaleshwar/"
+  },
+  "deployment_pipeline": {
+    "generator_script": "build_hostinger_site.py",
+    "test_suite": "test_web_portal.py",
+    "verification_script": "scratch/verify_all_links.py"
+  },
+  "last_synced": "2026-10-09T21:10:00+05:30"
+}

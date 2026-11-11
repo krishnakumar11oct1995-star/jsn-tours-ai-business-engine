@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block title %}Pilgrimage Tour Cost Calculator from Hyderabad | JSN Tours{% endblock %}
+{% block meta_description %}Calculate your exact travel budget in INR for sacred pilgrimages starting from Hyderabad. Estimate flights, trains, hotels, and temple expenses.{% endblock %}
+{% block canonical_url %}https://jaisrimannarayana.netlify.app/calculator/{% endblock %}
+
+{% block extra_head %}
+<!-- Structured Data (Schema.org JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jaisrimannarayana.netlify.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Budget Calculator",
+      "item": "https://jaisrimannarayana.netlify.app/calculator/"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block og_title %}Pilgrimage Tour Cost Calculator from Hyderabad | JSN Tours{% endblock %}
+{% block og_description %}Calculate your exact travel budget in INR for sacred pilgrimages starting from Hyderabad. Estimate flights, trains, hotels, and temple expenses.{% endblock %}
+{% block og_url %}https://jaisrimannarayana.netlify.app/calculator/{% endblock %}
+
+{% block twitter_title %}Pilgrimage Tour Cost Calculator from Hyderabad | JSN Tours{% endblock %}
+{% block twitter_description %}Calculate your exact travel budget in INR for sacred pilgrimages starting from Hyderabad. Estimate flights, trains, hotels, and temple expenses.{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-10">
+        <span class="text-amber-700 font-bold text-xs uppercase tracking-widest block mb-1">Financial Planning Tool</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Hyderabad Travel Budget Calculator (INR ₹)</h1>
+        <p class="text-slate-500 text-sm mt-2 max-w-xl mx-auto">Calculate your exact estimated tour expenditure from Rajiv Gandhi International Airport or Secunderabad Railway Station.</p>
+    </div>
+
+    <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-slate-200">
+        <div class="space-y-6">
+            <!-- Step 1 -->
+            <div>
+                <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">1. Select Destination</label>
+                <select id="calcDestination" class="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    {% for place in places %}
+                    <option value="{{ place.estimated_budget_min_inr }},{{ place.estimated_budget_max_inr }},{{ place.name }}">{{ place.name }} ({{ place.state_name }}, {{ place.country_name }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">2. Number of Pilgrims (Pax)</label>
+                    <select id="calcPax" class="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="1">1 Person (Solo Devotee)</option>
+                        <option value="2" selected>2 Persons (Couple)</option>
+                        <option value="3">3 Persons (Small Family)</option>
+                        <option value="4">4 Persons (Family Group)</option>
+                        <option value="6">6 Persons (Joint Family)</option>
+                        <option value="10">10+ Persons (Group Batch)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">3. Package Comfort Tier</label>
+                    <select id="calcTier" class="w-full p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="economy">Economy (AC Sleeper Train + 3-Star Hotels)</option>
+                        <option value="comfort" selected>Comfort (Direct Flight + 4-Star Lift Hotels)</option>
+                        <option value="vip">VIP Senior Care (Direct Flight + Helicopter + Wheelchair Escort)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Estimated Calculation Box -->
+            <div class="mt-8 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-950 text-white p-8 rounded-2xl border border-amber-500/30">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div>
+                        <span class="text-amber-300 text-xs font-bold uppercase tracking-wider block mb-1">Direct Calculated Budget</span>
+                        <div id="calcResultDisplay" class="text-4xl font-black text-white">₹33,000 - ₹68,000</div>
+                        <span id="calcSubtext" class="text-slate-300 text-xs mt-2 block font-medium">Includes transit from Hyderabad, hotel stay, Telugu satvik food, and temple entry.</span>
+                    </div>
+
+                    <button onclick="bookCalculatedPackage()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-4 rounded-xl text-sm shadow-xl flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span class="text-lg">💬</span>
+                        <span>Send Estimate to Ramesh on WhatsApp &rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Inclusion Badges -->
+                <div class="border-t border-white/10 mt-6 pt-4 flex flex-wrap gap-4 text-xs text-slate-300">
+                    <span>✅ Hyderabad Departure Guaranteed</span>
+                    <span>✅ 100% Telugu Satvik Kitchen</span>
+                    <span>✅ Lift & Ground Floor Rooms</span>
+                    <span>✅ Direct Approximate INR Pricing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Direct Static Approximate Budget Reference Table -->
+    <div class="mt-16 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-amber-700 font-bold text-xs uppercase tracking-widest block mb-1">Fixed Reference Rates</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Static Approximate Tour Budgets (Per Person)</h2>
+                <p class="text-slate-500 text-sm mt-1">Standard approximate package expenditure starting from Hyderabad. All packages include return transit, hotel stay, and Telugu satvik dining.</p>
+            </div>
+            <a href="https://wa.me/919030780132?text=Jai%20Srimannarayana%20Ramesh%2C%20please%20share%20all%20tour%20tariffs" target="_blank" class="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs px-4 py-2.5 rounded-xl border border-emerald-300 transition-all whitespace-nowrap">
+                <span>💬 Ask Ramesh on WhatsApp</span>
+                <span>&rarr;</span>
+            </a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm border-collapse">
+                <thead>
+                    <tr class="border-b-2 border-slate-200 bg-slate-50 text-slate-700 text-xs uppercase font-extrabold tracking-wider">
+                        <th class="py-3.5 px-4 rounded-l-xl">Destination</th>
+                        <th class="py-3.5 px-4">State</th>
+                        <th class="py-3.5 px-4 text-emerald-700">Economy (Train)</th>
+                        <th class="py-3.5 px-4 text-amber-700">Comfort (Flight)</th>
+                        <th class="py-3.5 px-4 text-purple-700">VIP Senior Care</th>
+                        <th class="py-3.5 px-4 text-right rounded-r-xl">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for place in places %}
+                    <tr class="hover:bg-amber-50/40 transition-colors">
+                        <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-2">
+                            <span class="text-amber-600">🔱</span>
+                            <a href="/destinations/{{ place.country_slug }}/{{ place.state_slug }}/{{ place.slug }}" class="hover:text-amber-700 hover:underline">
+                                {{ place.name }}
+                            </a>
+                        </td>
+                        <td class="py-4 px-4 text-slate-500 text-xs font-medium">{{ place.state_name }}</td>
+                        <td class="py-4 px-4 font-bold text-slate-800">
+                            ₹{{ "{:,}".format(place.estimated_budget_min_inr) }}
+                            <span class="block text-[11px] font-normal text-slate-400">AC Train / 3-Star</span>
+                        </td>
+                        <td class="py-4 px-4 font-bold text-amber-900">
+                            ₹{{ "{:,}".format(((place.estimated_budget_min_inr + place.estimated_budget_max_inr) / 2)|round|int) }}
+                            <span class="block text-[11px] font-normal text-slate-400">Flight / 4-Star Lift</span>
+                        </td>
+                        <td class="py-4 px-4 font-bold text-purple-900">
+                            ₹{{ "{:,}".format(place.estimated_budget_max_inr) }}
+                            <span class="block text-[11px] font-normal text-slate-400">Flight + Helicopter / VIP</span>
+                        </td>
+                        <td class="py-4 px-4 text-right">
+                            <button 
+                                onclick="selectDestinationFromTable('{{ place.name }}')" 
+                                class="inline-flex items-center gap-1 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg shadow-sm transition-all"
+                            >
+                                <span>Calculate</span>
+                                <span>&uarr;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+            <span>💡 *Note: Budgets are approximate estimates per pilgrim starting from Hyderabad, subject to seasonality and train/flight ticket booking dates.</span>
+            <span class="font-bold text-slate-700">Official Desk: Ramesh (9030780132)</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateBudgetCalc() {
+        const destVal = document.getElementById('calcDestination').value.split(',');
+        const minCost = parseInt(destVal[0]);
+        const maxCost = parseInt(destVal[1]);
+        const placeName = destVal[2];
+        const pax = parseInt(document.getElementById('calcPax').value);
+        const tier = document.getElementById('calcTier').value;
+
+        let multiplier = 1.0;
+        if (tier === 'economy') multiplier = 0.85;
+        if (tier === 'vip') multiplier = 1.35;
+
+        const totalMin = Math.round(minCost * pax * multiplier);
+        const totalMax = Math.round(maxCost * pax * multiplier);
+
+        document.getElementById('calcResultDisplay').innerText = `₹${totalMin.toLocaleString()} - ₹${totalMax.toLocaleString()}`;
+        document.getElementById('calcSubtext').innerText = `For ${pax} pilgrims to ${placeName} (${tier.toUpperCase()} tier starting from Hyderabad).`;
+    }
+
+    function selectDestinationFromTable(destinationName) {
+        const select = document.getElementById('calcDestination');
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text.includes(destinationName)) {
+                select.selectedIndex = i;
+                break;
+            }
+        }
+        updateBudgetCalc();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    document.getElementById('calcDestination').addEventListener('change', updateBudgetCalc);
+    document.getElementById('calcPax').addEventListener('change', updateBudgetCalc);
+    document.getElementById('calcTier').addEventListener('change', updateBudgetCalc);
+    updateBudgetCalc();
+
+    function bookCalculatedPackage() {
+        const destVal = document.getElementById('calcDestination').value.split(',');
+        const placeName = destVal[2];
+        const pax = document.getElementById('calcPax').value;
+        const tier = document.getElementById('calcTier').value;
+        const msg = encodeURIComponent(`Jai Srimannarayana Ramesh! I calculated an approximate budget for ${placeName} (${tier.toUpperCase()} tier, ${pax} travelers) from Hyderabad on your website. Please share the complete day-wise itinerary and booking confirmation.`);
+        window.open(`https://wa.me/919030780132?text=${msg}`, '_blank');
+    }
+</script>
+{% endblock %}

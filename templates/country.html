@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}{{ country.name }} Tour Packages from Hyderabad | JSN Tours{% endblock %}
+{% block meta_description %}Plan your {{ country.name }} tour from Hyderabad. Currency details, travel seasons, sacred places, and escorted yatras with authentic Telugu food.{% endblock %}
+{% block canonical_url %}https://jaisrimannarayana.netlify.app/destinations/{{ country.slug }}/{% endblock %}
+
+{% block extra_head %}
+<!-- Structured Data (Schema.org JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jaisrimannarayana.netlify.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Destinations",
+      "item": "https://jaisrimannarayana.netlify.app/destinations/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ country.name }}",
+      "item": "https://jaisrimannarayana.netlify.app/destinations/{{ country.slug }}/"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block og_title %}{{ country.name }} Tour Packages from Hyderabad | JSN Tours{% endblock %}
+{% block og_description %}Plan your {{ country.name }} tour from Hyderabad. Currency details, travel seasons, sacred places, and escorted yatras with authentic Telugu food.{% endblock %}
+{% block og_url %}https://jaisrimannarayana.netlify.app/destinations/{{ country.slug }}/{% endblock %}
+
+{% block twitter_title %}{{ country.name }} Tour Packages from Hyderabad | JSN Tours{% endblock %}
+{% block twitter_description %}Plan your {{ country.name }} tour from Hyderabad. Currency details, travel seasons, sacred places, and escorted yatras with authentic Telugu food.{% endblock %}
+
+{% block content %}
+<!-- Country Hero -->
+<section class="bg-gradient-to-r from-slate-900 to-amber-950 text-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4 mb-4">
+            <span class="text-5xl">{{ country.flag_emoji }}</span>
+            <div>
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-wider block">Country Travel Hub</span>
+                <h1 class="text-3xl sm:text-5xl font-black text-white">{{ country.name }}</h1>
+            </div>
+        </div>
+        <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed mb-8">
+            {{ country.description }}
+        </p>
+
+        <!-- Quick Currency & Visa Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-xs sm:text-sm">
+            <div>
+                <span class="text-slate-400 block text-[11px] uppercase">Official Currency</span>
+                <span class="font-bold text-amber-300">{{ country.currency_code }} ({{ country.currency_symbol }})</span>
+            </div>
+            <div>
+                <span class="text-slate-400 block text-[11px] uppercase">Exchange Rate</span>
+                <span class="font-bold text-white">{{ country.inr_exchange_rate }} INR</span>
+            </div>
+            <div>
+                <span class="text-slate-400 block text-[11px] uppercase">Visa Guidelines</span>
+                <span class="font-bold text-emerald-300">{{ country.visa_requirement }}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- States Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-2xl font-bold text-slate-900 mb-6">States & Regions in {{ country.name }}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for state in country.states %}
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-400 hover:shadow-lg transition-all flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-slate-900">{{ state.name }}</h3>
+                    <span class="text-xs bg-amber-50 text-amber-800 font-bold px-2 py-0.5 rounded border border-amber-200">
+                        {{ state.places|length }} Destinations
+                    </span>
+                </div>
+                <p class="text-xs text-slate-500 mb-4">Capital: {{ state.capital_city or 'N/A' }} • Best Time: {{ state.best_time_to_visit }}</p>
+                <p class="text-sm text-slate-600 line-clamp-3 mb-6">{{ state.description }}</p>
+
+                <!-- List of places -->
+                <div class="space-y-2 mb-6">
+                    {% for place in state.places %}
+                    <a href="/destinations/{{ country.slug }}/{{ state.slug }}/{{ place.slug }}" class="flex items-center justify-between p-2 rounded-lg bg-slate-50 hover:bg-amber-50 text-xs font-semibold text-slate-700 hover:text-amber-800 border border-slate-100 transition-colors">
+                        <span>🔱 {{ place.name }}</span>
+                        <span class="text-amber-700">₹{{ "{:,}".format(place.estimated_budget_min_inr) }} &rarr;</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <a href="/destinations/{{ country.slug }}/{{ state.slug }}" class="w-full py-2.5 bg-slate-900 hover:bg-amber-700 text-white font-bold text-xs rounded-xl text-center transition-all block">
+                Explore {{ state.name }} Region &rarr;
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

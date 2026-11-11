@@ -1,0 +1,847 @@
+{% extends "base.html" %}
+
+{% block title %}Hyderabad Pilgrimage Tour Packages | Jai Srimannarayana{% endblock %}
+
+{% block extra_head %}
+<!-- Structured Data (Schema.org JSON-LD) for LocalBusiness & TravelAgency -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Jai Srimannarayana Tours & Travels",
+  "alternateName": "Jai Srimannarayana Pilgrimage Packages Hyderabad",
+  "founder": {
+    "@type": "Person",
+    "name": "Ramesh",
+    "sameAs": "https://www.youtube.com/@telugutravellerramesh5846"
+  },
+  "url": "https://jaisrimannarayana.netlify.app/",
+  "logo": "https://jaisrimannarayana.netlify.app/static/kashi_video_poster.jpg",
+  "image": "https://jaisrimannarayana.netlify.app/static/kashi_video_poster.jpg",
+  "description": "Hyderabad's premier pilgrimage tour operator by Ramesh. Offering organized Kashi, Ayodhya, Chardham, and South India yatras with authentic Telugu satvik food, direct flights from RGIA, and senior citizen assistance.",
+  "telephone": "+919030780132",
+  "priceRange": "₹₹",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "Cash, UPI, Bank Transfer",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 17.385044,
+    "longitude": 78.486671
+  },
+  "sameAs": [
+    "https://www.youtube.com/@telugutravellerramesh5846"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "07:00",
+      "closes": "21:00"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-b from-amber-900 via-amber-800 to-slate-900 text-white overflow-hidden py-16 sm:py-24">
+    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
+            <span>🚩 Hyderabad's Dedicated Devotional Travel Network</span>
+            <span>•</span>
+            <span>Ramesh (@telugutravellerramesh5846)</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+            Explore Sacred Destinations <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">Directly From Hyderabad</span>
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            Authentic Telugu satvik food, direct RGIA flights & Secunderabad trains, ground-floor rooms for senior parents, and transparent INR budgets.
+        </p>
+
+        <!-- Search Bar Form -->
+        <div class="max-w-3xl mx-auto bg-white p-2.5 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center gap-2 border border-slate-100">
+            <div class="relative w-full flex-grow">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-lg">🔍</span>
+                <input 
+                    type="text" 
+                    id="destinationSearch" 
+                    placeholder="Search destination, state, or temple (e.g. Kashi, Kedarnath, Ayodhya)..." 
+                    class="w-full pl-10 pr-4 py-3 text-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm font-medium"
+                    onkeyup="filterDestinations()"
+                >
+            </div>
+            <a 
+                href="/calculator" 
+                class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold rounded-xl text-sm transition-all shadow-md whitespace-nowrap text-center"
+            >
+                Calculate Budget &rarr;
+            </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left text-xs sm:text-sm">
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center gap-3">
+                <span class="text-2xl">🚆</span>
+                <div>
+                    <span class="block font-bold text-white">Direct Departures</span>
+                    <span class="text-slate-300 text-xs">From RGIA & Secunderabad</span>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center gap-3">
+                <span class="text-2xl">🍲</span>
+                <div>
+                    <span class="block font-bold text-white">Telugu Satvik Cooks</span>
+                    <span class="text-slate-300 text-xs">Fresh warm meals on tour</span>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center gap-3">
+                <span class="text-2xl">👴</span>
+                <div>
+                    <span class="block font-bold text-white">Elder-Friendly Care</span>
+                    <span class="text-slate-300 text-xs">Wheelchairs & lift rooms</span>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center gap-3">
+                <span class="text-2xl">💰</span>
+                <div>
+                    <span class="block font-bold text-white">Transparent INR</span>
+                    <span class="text-slate-300 text-xs">No hidden tour costs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured All-Inclusive Tour Packages from Hyderabad -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+            <div class="text-amber-700 font-bold text-xs uppercase tracking-widest mb-1">Escorted Group Yatras</div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Featured Tour Packages from Hyderabad</h2>
+            <p class="text-slate-500 text-sm mt-1">Complete all-inclusive packages with flights, trains, Telugu satvik cooking, and senior citizen assistance.</p>
+        </div>
+        <a href="/destinations" class="px-4 py-2 bg-amber-50 text-amber-800 hover:bg-amber-100 rounded-xl text-xs font-bold transition-all border border-amber-200 whitespace-nowrap self-start sm:self-auto">
+            View All Packages &rarr;
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Package Card 1: Rameswaram South India -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col group">
+            <div class="relative h-56 overflow-hidden bg-slate-900">
+                <img 
+                    src="/static/images/rameswaram_temple.jpg" 
+                    alt="Rameswaram Ramanathaswamy Temple Corridor" 
+                    width="800"
+                    height="450"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-red-700 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow">
+                    🚩 Winter Special
+                </div>
+                <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full shadow">
+                    5 Days / 4 Nights
+                </div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-4 pt-10">
+                    <span class="text-xs text-amber-300 font-bold block uppercase tracking-wider">Tamil Nadu Sacred Circuit</span>
+                    <h3 class="text-lg font-black text-white leading-tight">Rameswaram • Madurai • Kanyakumari</h3>
+                </div>
+            </div>
+            <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                    <ul class="text-xs space-y-2 text-slate-700 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Direct RGIA Flight to Madurai / AC Train</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>22 Sacred Teertha Snanam with Personal Helpers</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Dhanushkodi Ram Setu & Vivekananda Rock</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>100% Fresh Telugu Satvik Meals Daily</span>
+                        </li>
+                    </ul>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200/80 mb-4 flex items-center justify-between">
+                        <div>
+                            <span class="block text-[10px] uppercase font-bold text-amber-800">All-Inclusive Starting At</span>
+                            <div class="text-xl font-black text-amber-950">₹19,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                        </div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Elder Care ✅</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+                    <a href="/packages/rameswaram-madurai-kanyakumari" class="py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm">
+                        View Itinerary &rarr;
+                    </a>
+                    <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20want%20to%20book%20the%205-Day%20Rameswaram%20Madurai%20Kanyakumari%20package%20from%20Hyderabad." target="_blank" class="py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm flex items-center justify-center gap-1">
+                        <span>💬 WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Package Card 2: Kashi Prayagraj Ayodhya -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col group">
+            <div class="relative h-56 overflow-hidden bg-slate-900">
+                <img 
+                    src="/static/images/ayodhya_ram_mandir.jpg" 
+                    alt="Ayodhya Ram Mandir & Kashi Yatra" 
+                    width="800"
+                    height="450"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow">
+                    ⭐ Flagship Yatra
+                </div>
+                <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full shadow">
+                    5 Days / 4 Nights
+                </div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-4 pt-10">
+                    <span class="text-xs text-amber-300 font-bold block uppercase tracking-wider">Uttar Pradesh Sacred Circuit</span>
+                    <h3 class="text-lg font-black text-white leading-tight">Kashi • Prayagraj • Ayodhya</h3>
+                </div>
+            </div>
+            <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                    <ul class="text-xs space-y-2 text-slate-700 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Direct RGIA Flights / AC Express Trains</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Kashi Vishwanath Sugam VIP Darshan</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Ayodhya Ram Janmabhoomi VIP Pass</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Triveni Sangam Snanam & Pinda Pradanam</span>
+                        </li>
+                    </ul>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200/80 mb-4 flex items-center justify-between">
+                        <div>
+                            <span class="block text-[10px] uppercase font-bold text-amber-800">All-Inclusive Starting At</span>
+                            <div class="text-xl font-black text-amber-950">₹18,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                        </div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Elder Care ✅</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+                    <a href="/packages/kashi-prayagraj-ayodhya" class="py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm">
+                        View Itinerary &rarr;
+                    </a>
+                    <a href="https://wa.me/919030780132?text=Jai%20Srimannarayana%20Ramesh%2C%20I%20want%20to%20book%20the%205-Day%20Kashi-Prayagraj-Ayodhya%20package%20from%20Hyderabad" target="_blank" class="py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm flex items-center justify-center gap-1">
+                        <span>💬 WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Package Card 3: Diwali Deepotsav & Dev Deepavali -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 flex flex-col group">
+            <div class="relative h-56 overflow-hidden bg-slate-900">
+                <img 
+                    src="/static/images/kashi_ganga_aarti.jpg" 
+                    alt="Kashi Dev Deepavali Ganga Aarti" 
+                    width="800"
+                    height="450"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-purple-700 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow">
+                    🪔 Kartika Festival
+                </div>
+                <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1 rounded-full shadow">
+                    5 Days / 4 Nights
+                </div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-4 pt-10">
+                    <span class="text-xs text-amber-300 font-bold block uppercase tracking-wider">Festival Special Edition</span>
+                    <h3 class="text-lg font-black text-white leading-tight">Ayodhya Deepotsav & Kashi Dev Deepavali</h3>
+                </div>
+            </div>
+            <div class="p-5 flex-grow flex flex-col justify-between">
+                <div>
+                    <ul class="text-xs space-y-2 text-slate-700 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>25+ Lakh Diyas Saryu Deepotsav Viewing</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Private Chartered Boat for 84 Kashi Ghats</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Kartika Purnima Maha Aarti VIP Seating</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <span>Satvik Telugu Bhojanam by Traveling Cooks</span>
+                        </li>
+                    </ul>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200/80 mb-4 flex items-center justify-between">
+                        <div>
+                            <span class="block text-[10px] uppercase font-bold text-amber-800">All-Inclusive Starting At</span>
+                            <div class="text-xl font-black text-amber-950">₹19,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                        </div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Elder Care ✅</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+                    <a href="/packages/diwali-dev-deepavali" class="py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm">
+                        View Itinerary &rarr;
+                    </a>
+                    <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20am%20interested%20in%20Ayodhya%20Deepotsav%20and%20Kashi%20Dev%20Deepavali%20package." target="_blank" class="py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl text-center transition-all shadow-sm flex items-center justify-center gap-1">
+                        <span>💬 WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Destinations Grid -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+            <div class="text-amber-700 font-bold text-xs uppercase tracking-widest mb-1">Curated Travel Catalog</div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Famous Destinations From Hyderabad</h2>
+            <p class="text-slate-500 text-sm mt-1">Detailed history, best seasons, exact INR budgets, and how to reach from Hyderabad.</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="/destinations/india" class="px-4 py-2 bg-amber-50 text-amber-800 hover:bg-amber-100 rounded-xl text-xs font-bold transition-all border border-amber-200">
+                🇮🇳 All India Yatras
+            </a>
+            <a href="/destinations/nepal" class="px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl text-xs font-bold transition-all border border-slate-200">
+                🇳🇵 Nepal Circuits
+            </a>
+        </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="destinationsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {% for place in places %}
+        <div class="destination-card bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col group" data-name="{{ place.name|lower }} {{ place.state_name|lower }} {{ place.category|lower }}">
+            <!-- Card Image -->
+            <div class="relative h-48 overflow-hidden bg-slate-100">
+                <img 
+                    src="{{ place.hero_image }}" 
+                    alt="{{ place.name }}" 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                    {{ place.category }}
+                </div>
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-extrabold px-2.5 py-1 rounded-full shadow">
+                    ⭐ {{ place.telugu_food_rating }}/5 Telugu Food
+                </div>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/80 to-transparent p-3 pt-8">
+                    <span class="text-xs text-amber-300 font-semibold block">{{ place.state_name }}, {{ place.country_name }}</span>
+                    <h3 class="text-base font-bold text-white leading-snug">{{ place.name }}</h3>
+                </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-4 flex-grow flex flex-col justify-between">
+                <div>
+                    <!-- Quick Badges -->
+                    <div class="flex items-center justify-between text-xs text-slate-500 mb-3 pb-3 border-b border-slate-100">
+                        <span>🗓️ {{ place.best_season }}</span>
+                        {% if place.senior_friendly %}
+                        <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Elder Care ✅</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Hyderabad Budget Info -->
+                    <div class="mb-4 bg-amber-50/60 p-2.5 rounded-xl border border-amber-100">
+                        <span class="block text-[11px] uppercase tracking-wider text-amber-800 font-bold">Estimated Hyderabad Budget</span>
+                        <div class="text-base font-extrabold text-amber-900">
+                            {{ place.currency_symbol }}{{ "{:,}".format(place.estimated_budget_min_inr) }} - {{ place.currency_symbol }}{{ "{:,}".format(place.estimated_budget_max_inr) }}
+                            <span class="text-xs font-normal text-slate-500">/ person</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <a 
+                    href="/destinations/{{ place.country_slug }}/{{ place.state_slug }}/{{ place.slug }}" 
+                    class="w-full mt-2 py-2.5 bg-slate-900 hover:bg-amber-700 text-white font-bold text-xs rounded-xl text-center transition-all group-hover:bg-amber-600 block shadow-sm"
+                >
+                    View Hyderabad Route & Guide &rarr;
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Interactive Quick Budget Calculator Section -->
+<section class="bg-amber-50/70 border-y border-amber-200/60 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-amber-700 font-bold text-xs uppercase tracking-widest block mb-1">Instant Estimates</span>
+            <h2 class="text-3xl font-extrabold text-slate-900">Plan Your Pilgrimage Budget in INR (₹)</h2>
+            <p class="text-slate-600 text-sm mt-1">Get an instant estimated travel cost starting from Rajiv Gandhi International Airport or Secunderabad Station.</p>
+        </div>
+
+        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-100">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-2">1. Select Destination</label>
+                    <select id="calcDestination" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500">
+                        {% for place in places %}
+                        <option value="{{ place.estimated_budget_min_inr }},{{ place.estimated_budget_max_inr }},{{ place.name }}">{{ place.name }} ({{ place.state_name }})</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-2">2. Number of Travelers</label>
+                    <select id="calcPax" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500">
+                        <option value="1">1 Person (Solo)</option>
+                        <option value="2" selected>2 Persons (Couple)</option>
+                        <option value="4">4 Persons (Family Group)</option>
+                        <option value="6">6 Persons (Joint Family)</option>
+                        <option value="10">10+ Persons (Group Batch)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-2">3. Travel Comfort Tier</label>
+                    <select id="calcTier" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:ring-2 focus:ring-amber-500">
+                        <option value="economy">Economy (AC Sleeper Train + 3-Star)</option>
+                        <option value="comfort" selected>Comfort (Direct Flight + Lift AC Hotel)</option>
+                        <option value="vip">VIP Senior Care (Flight + Helicopter + Wheelchair)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Output Banner -->
+            <div class="bg-gradient-to-r from-slate-900 to-amber-950 text-white p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="text-amber-300 text-xs font-bold uppercase tracking-wider block mb-1">Total Estimated Hyderabad Budget</span>
+                    <div id="calcResultDisplay" class="text-3xl sm:text-4xl font-extrabold text-white">₹33,000 - ₹68,000</div>
+                    <span id="calcSubtext" class="text-slate-400 text-xs mt-1 block">Includes Hyderabad transit, AC rooms, Telugu satvik food, and temple passes.</span>
+                </div>
+                <button onclick="bookCalculatedPackage()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-3.5 rounded-xl text-sm shadow-lg flex items-center gap-2 whitespace-nowrap">
+                    <span>💬 Lock Seats on WhatsApp &rarr;</span>
+                </button>
+            </div>
+
+            <!-- Direct Static Approximate Budgets Quick Reference -->
+            <div class="mt-8 pt-8 border-t border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-amber-700 font-bold text-xs uppercase tracking-wider block">Direct Reference</span>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900">Direct Approximate Budgets by Yatra (Per Pilgrim)</h3>
+                    </div>
+                    <a href="/calculator" class="text-amber-700 hover:text-amber-800 text-xs font-bold hover:underline flex items-center gap-1">
+                        <span>View Full Tariff Table</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
+                    {% for p in places[:6] %}
+                    <div class="bg-slate-50 hover:bg-amber-50 p-3 rounded-xl border border-slate-200 transition-colors cursor-pointer group" onclick="selectQuickDestination('{{ p.name }}')">
+                        <span class="text-xs font-bold text-slate-800 block line-clamp-1 group-hover:text-amber-800">{{ p.name }}</span>
+                        <div class="text-xs font-extrabold text-amber-700 mt-1">₹{{ "{:,}".format(p.estimated_budget_min_inr) }}</div>
+                        <span class="text-[10px] text-slate-400 block">approx. starting</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ramesh YouTube Videos & Travel Highlights Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Why Devotees Choose Jai Srimannarayana Trust Section -->
+    <div class="bg-gradient-to-b from-amber-50 to-orange-50/50 rounded-3xl p-8 sm:p-12 border border-amber-200/80 shadow-lg mb-12">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-3">
+                <span>🚩 Matru-Pitru Seva & Devotional Care</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Devotional Care Tailored for Telugu Pilgrims
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+                Founded by Ramesh, Jai Srimannarayana Tours & Travels organizes sacred pilgrimages from Hyderabad with personal attention to elderly comfort, traditional food, and peaceful darshan.
+            </p>
+        </div>
+
+        <!-- 4 Devotional Trust Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <!-- Pillar 1: Satvik Bhojanam -->
+            <div class="bg-white rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center text-2xl mb-4">
+                        🍲
+                    </div>
+                    <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider block mb-1">Authentic Taste</span>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">100% Satvik Telugu Bhojanam</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Traveling Telugu cooks accompany our groups to prepare hot sambar, rasam, and curd rice without onion or garlic throughout Kashi, Ayodhya, and Chardham.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-700 flex items-center gap-1.5">
+                    <span>✓</span> Fresh hot meals on every tour
+                </div>
+            </div>
+
+            <!-- Pillar 2: Matru-Pitru Seva -->
+            <div class="bg-white rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-700 flex items-center justify-center text-2xl mb-4">
+                        🧓
+                    </div>
+                    <span class="text-[11px] font-bold text-orange-700 uppercase tracking-wider block mb-1">Elder First</span>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Dedicated Elder Care</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Hotels with lift access or ground floor rooms, wheelchair coordination at transit hubs, and supportive escorts for sacred teertha snanam at holy ghats.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-700 flex items-center gap-1.5">
+                    <span>✓</span> Gentle pace without rushed steps
+                </div>
+            </div>
+
+            <!-- Pillar 3: Hyderabad Logistics -->
+            <div class="bg-white rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center text-2xl mb-4">
+                        ✈️
+                    </div>
+                    <span class="text-[11px] font-bold text-blue-700 uppercase tracking-wider block mb-1">Direct Transit</span>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Direct Hyderabad Departures</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Escorted departures from Rajiv Gandhi International Airport (HYD) and Secunderabad Junction with confirmed tickets, AC coaches, and clear schedules.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-700 flex items-center gap-1.5">
+                    <span>✓</span> Full door-to-dham coordination
+                </div>
+            </div>
+
+            <!-- Pillar 4: Personal Escort by Ramesh -->
+            <div class="bg-white rounded-2xl p-6 border border-amber-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center text-2xl mb-4">
+                        🛡️
+                    </div>
+                    <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block mb-1">Accountability</span>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Personal Supervision</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Every itinerary is supervised by Ramesh, with transparent all-inclusive tariffs, zero hidden temple charges, and direct phone contact at all times.
+                    </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-700 flex items-center gap-1.5">
+                    <span>✓</span> Direct assistance from Ramesh
+                </div>
+            </div>
+        </div>
+
+        <!-- Consultation & Contact CTA Bar -->
+        <div class="bg-white rounded-2xl p-6 border border-amber-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-0.5">Need Guidance on Dates or Health Requirements?</span>
+                <p class="text-slate-800 font-bold text-base sm:text-lg">Speak with Ramesh directly for personalized pilgrimage consultation</p>
+                <p class="text-slate-500 text-xs mt-0.5">Hyderabad departures from RGIA and Secunderabad. Available 8:00 AM to 9:00 PM IST.</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="https://wa.me/919030780132?text=Jai%20Srimannarayana%20Ramesh%2C%20I%20want%20to%20plan%20a%20pilgrimage" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-sm">
+                    <span>💬 WhatsApp Ramesh (9030780132)</span>
+                </a>
+                <a href="tel:+919030780132" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-sm">
+                    <span>📞 Call +91 9030780132</span>
+                </a>
+                <a href="/about" class="inline-flex items-center gap-1 text-slate-700 hover:text-amber-800 font-bold text-xs sm:text-sm px-3 py-2 transition-all">
+                    <span>Our Seva Story &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Videos from Ramesh's YouTube Channel -->
+    <div class="mt-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-amber-700 font-bold text-xs uppercase tracking-widest block mb-1">Live YouTube Channel Feed</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Recent Yatra Videos by Ramesh</h3>
+                <p class="text-slate-500 text-sm mt-1">Real yatra footage, Ganga Aarti darshanam, Chardham waterfalls, and pilgrim experiences.</p>
+            </div>
+            <a href="https://www.youtube.com/@telugutravellerramesh5846" target="_blank" class="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-bold text-sm bg-red-50 hover:bg-red-100 px-4 py-2 rounded-xl transition-all border border-red-200">
+                <span>View All 50+ Videos on YouTube</span>
+                <span>&rarr;</span>
+            </a>
+        </div>
+
+        <!-- 6 Interactive YouTube Video Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Video 1: Kartika Deepotsavam -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('MpNtiv_OZhQ', 'కార్తీక దీపోత్సవం - Kartika Deepotsavam Siddipet')">
+                    <img src="https://i.ytimg.com/vi/MpNtiv_OZhQ/hqdefault.jpg" alt="Kartika Deepotsavam Siddipet" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase">కార్తీక దీపోత్సవం</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('MpNtiv_OZhQ', 'కార్తీక దీపోత్సవం - Kartika Deepotsavam Siddipet')">
+                            #Kartika dhipotshavam Siddipet #కార్తీక దీపోత్సవం సిద్దిపేట
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Kartika Masam Special</span>
+                        <a href="https://www.youtube.com/watch?v=MpNtiv_OZhQ" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2: Kasi Dharshanam -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('GnFzdND__fE', '#kasi dharshanam #Jai Srimannarayana Tours & Travels')">
+                    <img src="https://i.ytimg.com/vi/GnFzdND__fE/hqdefault.jpg" alt="Kasi Dharshanam" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase">Kashi Yatra</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('GnFzdND__fE', '#kasi dharshanam #Jai Srimannarayana Tours & Travels')">
+                            #kasi dharshanam #Jai Srimannarayana Tours & Travels 9030780132
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Pilgrim Darshan Footage</span>
+                        <a href="https://www.youtube.com/watch?v=GnFzdND__fE" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3: Muchintal Statue of Equality -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('rtNHT1-rOgg', 'Muchintal ki sare teesukelina vikasa tarangini Siddipet Bhakta Brundhavanam')">
+                    <img src="https://i.ytimg.com/vi/rtNHT1-rOgg/hqdefault.jpg" alt="Muchintal Vikasa Tarangini Devotees" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase">Muchintal Yatra</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('rtNHT1-rOgg', 'Muchintal ki sare teesukelina vikasa tarangini Siddipet Bhakta Brundhavanam')">
+                            Muchintal Statue of Equality: Siddipet Vikasa Tarangini Bhakta Brundam
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Telugu Group Yatra</span>
+                        <a href="https://www.youtube.com/watch?v=rtNHT1-rOgg" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 4: Tour Itinerary 3-Star Hotel Stay Review -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('C57xV3jfAFY', 'Our Tour Itinerary: 3-Star Hotel Stay & Facilities')">
+                    <img src="https://i.ytimg.com/vi/C57xV3jfAFY/hqdefault.jpg" alt="Our Tour Itinerary Hotel Review" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded uppercase">Hotel Facilities</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('C57xV3jfAFY', 'Our Tour Itinerary: 3-Star Hotel Stay & Facilities')">
+                            Our Tour Itinerary: 3-Star Hotel Stay & Clean Accommodations Review
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Elder Comfort Verification</span>
+                        <a href="https://www.youtube.com/watch?v=C57xV3jfAFY" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5: Kashi Ganga Snanam -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('f1FEvcV3S1c', '#kasi ganga dharshanam #Jai Srimannarayana Tours & Travels')">
+                    <img src="https://i.ytimg.com/vi/f1FEvcV3S1c/hqdefault.jpg" alt="Kasi Ganga Dharshanam" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded uppercase">Kashi Theertham</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('f1FEvcV3S1c', '#kasi ganga dharshanam #Jai Srimannarayana Tours & Travels')">
+                            #kasi ganga dharshanam #Jai Srimannarayana Tours & Travels 9030780132
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Ganga Theertha Snanam</span>
+                        <a href="https://www.youtube.com/watch?v=f1FEvcV3S1c" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 6: Telugu Pilgrims Review -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-red-400 hover:shadow-xl transition-all flex flex-col justify-between group">
+                <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer group/thumb" onclick="openVideoPlayer('hcS8dpn6iXI', '#Chardham yatra యాత్రికుల పరిచయం (Telugu Pilgrims Review)')">
+                    <img src="https://i.ytimg.com/vi/hcS8dpn6iXI/hqdefault.jpg" alt="Chardham Yatra Telugu Pilgrims" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors flex items-center justify-center">
+                        <div class="w-16 h-11 bg-red-600 group-hover/thumb:bg-red-700 text-white rounded-xl flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 transition-all duration-300">
+                            <svg class="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm">
+                        ▶ Click to Play
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded uppercase">Pilgrim Testimonials</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug cursor-pointer hover:text-red-600 transition-colors" onclick="openVideoPlayer('hcS8dpn6iXI', '#Chardham yatra యాత్రికుల పరిచయం (Telugu Pilgrims Review)')">
+                            #Chardham yatra యాత్రికుల పరిచయం (Telugu Pilgrims Testimonial Review)
+                        </h4>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Real Devotee Reviews</span>
+                        <a href="https://www.youtube.com/watch?v=hcS8dpn6iXI" target="_blank" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                            <span>Watch on YouTube</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Live Search Filter
+    function filterDestinations() {
+        const query = document.getElementById('destinationSearch').value.toLowerCase();
+        const cards = document.querySelectorAll('.destination-card');
+        cards.forEach(card => {
+            const name = card.getAttribute('data-name');
+            if (name.includes(query)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Interactive Budget Calculation
+    function updateBudgetCalc() {
+        const destVal = document.getElementById('calcDestination').value.split(',');
+        const minCost = parseInt(destVal[0]);
+        const maxCost = parseInt(destVal[1]);
+        const placeName = destVal[2];
+        const pax = parseInt(document.getElementById('calcPax').value);
+        const tier = document.getElementById('calcTier').value;
+
+        let multiplier = 1.0;
+        if (tier === 'economy') multiplier = 0.85;
+        if (tier === 'vip') multiplier = 1.35;
+
+        const totalMin = Math.round(minCost * pax * multiplier);
+        const totalMax = Math.round(maxCost * pax * multiplier);
+
+        document.getElementById('calcResultDisplay').innerText = `₹${totalMin.toLocaleString()} - ₹${totalMax.toLocaleString()}`;
+        document.getElementById('calcSubtext').innerText = `For ${pax} pilgrims to ${placeName} (${tier.toUpperCase()} tier with Hyderabad departures).`;
+    }
+
+    document.getElementById('calcDestination').addEventListener('change', updateBudgetCalc);
+    document.getElementById('calcPax').addEventListener('change', updateBudgetCalc);
+    document.getElementById('calcTier').addEventListener('change', updateBudgetCalc);
+    updateBudgetCalc();
+
+    function selectQuickDestination(destinationName) {
+        const select = document.getElementById('calcDestination');
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text.includes(destinationName)) {
+                select.selectedIndex = i;
+                break;
+            }
+        }
+        updateBudgetCalc();
+    }
+
+    function bookCalculatedPackage() {
+        const destVal = document.getElementById('calcDestination').value.split(',');
+        const placeName = destVal[2];
+        const pax = document.getElementById('calcPax').value;
+        const msg = encodeURIComponent(`Jai Srimannarayana Ramesh! I calculated a budget for ${placeName} for ${pax} pilgrims on your website. Please share full itinerary and seat booking details.`);
+        window.open(`https://wa.me/919030780132?text=${msg}`, '_blank');
+    }
+</script>
+{% endblock %}

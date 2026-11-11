@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>జై శ్రీమన్నారాయణ టూర్స్ & ట్రావెల్స్ - 7 జ్యోతిర్లింగాలు & 5 ద్వారకల యాత్ర</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 2200px;
+    background: #fffdf7;
+    font-family: 'Nirmala UI', sans-serif;
+    color: #222;
+    padding: 24px;
+    position: relative;
+  }
+  .outer-border {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #8B0000;
+    padding: 10px;
+    background: #fffdf9;
+    position: relative;
+  }
+  .inner-border {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #D4AF37;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+  }
+
+  /* Header */
+  .sacred-bar {
+    background: linear-gradient(90deg, #7A0000, #9B111E, #7A0000);
+    color: #FFE8A3;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    border: 1px solid #D4AF37;
+  }
+  .deities-row {
+    text-align: center;
+    margin: 12px 0 6px 0;
+  }
+  .deities-img {
+    height: 115px;
+    object-fit: contain;
+  }
+  .brand-title {
+    text-align: center;
+    font-size: 46px;
+    font-weight: 900;
+    color: #8B0000;
+    line-height: 1.1;
+    margin-top: 4px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+  }
+  .brand-sub {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #D96B00;
+    letter-spacing: 2px;
+    margin-top: 4px;
+  }
+
+  /* Tour Title Hero Box */
+  .tour-hero-box {
+    background: linear-gradient(135deg, #8B0000 0%, #A31212 50%, #680000 100%);
+    border: 3px solid #D4AF37;
+    border-radius: 16px;
+    padding: 18px 24px;
+    text-align: center;
+    color: #fff;
+    margin: 14px 0;
+    box-shadow: 0 6px 16px rgba(139, 0, 0, 0.25);
+  }
+  .tour-hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #FFE680;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  }
+  .tour-hero-sub {
+    font-size: 27px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 8px;
+  }
+  .tour-hero-mode {
+    display: inline-block;
+    background: #FFE680;
+    color: #7A0000;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 4px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: 1px solid #D4AF37;
+  }
+
+  /* Middle Split: Bus Image & Highlights Card */
+  .bus-highlight-row {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 14px;
+  }
+  .bus-card {
+    flex: 1;
+    background: #FAF8F2;
+    border: 2px solid #E6D5B8;
+    border-radius: 14px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .bus-img {
+    width: 100%;
+    max-height: 190px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  .bus-tag {
+    font-size: 20px;
+    font-weight: 800;
+    color: #8B0000;
+    margin-top: 6px;
+  }
+  .highlight-card {
+    flex: 1.15;
+    background: #FFF9E6;
+    border: 2px solid #D4AF37;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .h-line {
+    font-size: 22px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .h-line strong {
+    color: #8B0000;
+  }
+  .price-banner {
+    background: linear-gradient(90deg, #8B0000, #B21818);
+    color: #FFF;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #D4AF37;
+  }
+  .price-banner .price-val {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FFE680;
+  }
+  .price-banner .price-sub {
+    font-size: 16px;
+    color: #FFD2D2;
+  }
+
+  /* 20 Places Section */
+  .places-section-title {
+    background: #8B0000;
+    color: #FFE680;
+    font-size: 23px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid #D4AF37;
+    letter-spacing: 0.5px;
+  }
+  .places-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .places-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .place-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFBF0;
+    border: 1px solid #EADBBA;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 19px;
+  }
+  .place-num {
+    background: #D96B00;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 900;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .place-name {
+    font-weight: 800;
+    color: #1A1A1A;
+  }
+  .place-tag {
+    font-size: 16px;
+    color: #666;
+    margin-left: 4px;
+    font-weight: normal;
+  }
+
+  /* Facilities / Inclusions */
+  .inclusions-card {
+    background: #FFFFFF;
+    border: 2px solid #D4AF37;
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+  }
+  .inclusions-head {
+    color: #8B0000;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #F0E6D2;
+    padding-bottom: 4px;
+    text-align: center;
+  }
+  .inc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    font-size: 18px;
+  }
+  .inc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #333;
+    line-height: 1.35;
+  }
+  .inc-item strong {
+    color: #B35400;
+  }
+
+  /* Terms / Note */
+  .terms-box {
+    background: #FFF5F5;
+    border: 1px solid #E8C4C4;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .terms-box strong {
+    color: #8B0000;
+  }
+  .terms-list {
+    margin-left: 18px;
+    margin-top: 4px;
+  }
+
+  /* Footer */
+  .footer-card {
+    background: linear-gradient(135deg, #7A0000 0%, #900B17 60%, #680000 100%);
+    border: 2px solid #D4AF37;
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(122, 0, 0, 0.3);
+  }
+  .contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .contact-title {
+    font-size: 22px;
+    color: #FFE680;
+    font-weight: 700;
+  }
+  .contact-phone {
+    font-size: 44px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  .website-pill {
+    background: #FFE680;
+    color: #7A0000;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    border: 2px solid #FFF;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  }
+</style>
+</head>
+<body>
+
+<div class="outer-border">
+  <div class="inner-border">
+
+    <!-- Top Sacred Header -->
+    <div>
+      <div class="sacred-bar">|| శ్రీరస్తు • శుభమస్తు • శ్రీ వేంకటేశ్వర ప్రసన్నః ||</div>
+      
+      <div class="deities-row">
+        <img src="flyer_deities_crop.png" alt="Sri Ramanuja, Thirunamam, Hanuman, Garuda" class="deities-img">
+      </div>
+
+      <div class="brand-title">జై శ్రీమన్నారాయణ టూర్స్ & ట్రావెల్స్</div>
+      <div class="brand-sub">JAI SRIMANNARAYANA TOURS & TRAVELS • HYDERABAD</div>
+    </div>
+
+    <!-- Tour Main Hero Title -->
+    <div class="tour-hero-box">
+      <div class="tour-hero-title">7 జ్యోతిర్లింగాలు & 5 ద్వారకలు</div>
+      <div class="tour-hero-sub">శ్రీ క్షేత్ర పండరీపురం • కొల్హాపూర్ • షిర్డీ దివ్య యాత్ర</div>
+      <div class="tour-hero-mode">🚌 లగ్జరీ 2+1 AC స్లీపర్ కోచ్ బస్సు (Luxury AC Sleeper Coach)</div>
+    </div>
+
+    <!-- Bus & Key Details Row -->
+    <div class="bus-highlight-row">
+      <div class="bus-card">
+        <img src="flyer_bus_crop.png" alt="Luxury AC Sleeper Bus" class="bus-img">
+        <div class="bus-tag">★ ప్రయాణ సౌకర్యం: లగ్జరీ AC స్లీపర్ ★</div>
+      </div>
+      <div class="highlight-card">
+        <div>
+          <div class="h-line">📅 <span>బయలుదేరు తేదీ: <strong>28 నవంబర్ 2026</strong></span></div>
+          <div class="h-line">📍 <span>ప్రారంభం: <strong>సిద్దిపేట & హైదరాబాద్ నుండి</strong></span></div>
+          <div class="h-line">⏳ <span>యాత్ర శైలి: <strong>సకల సౌకర్యాలతో కూడిన దివ్య దర్శనం</strong></span></div>
+        </div>
+        <div class="price-banner">
+          <div class="price-val">₹32,000/- <span style="font-size: 20px; color:#FFE680;">(ఒక్కరికి)</span></div>
+          <div class="price-sub">రవాణా, సాత్విక భోజనం, AC వసతి అన్నీ కలిపి (All-Inclusive)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20 Sacred Kshetras (Corrected Telugu Spellings) -->
+    <div>
+      <div class="places-section-title">🚩 దర్శనీయ 20 దివ్య పుణ్యక్షేత్రాలు (పూర్తి దర్శన మార్గం) 🚩</div>
+      
+      <div class="places-grid">
+        <!-- Column 1 (Places 1 - 10) -->
+        <div class="places-col">
+          <div class="place-item"><span class="place-num">1</span> <span class="place-name">తుల్జాపూర్</span> <span class="place-tag">- శ్రీ భవానీ మాత దర్శనం</span></div>
+          <div class="place-item"><span class="place-num">2</span> <span class="place-name">కొల్హాపూర్</span> <span class="place-tag">- శ్రీ మహాలక్ష్మి శక్తిపీఠం</span></div>
+          <div class="place-item"><span class="place-num">3</span> <span class="place-name">పండరీపురం</span> <span class="place-tag">- శ్రీ విఠల్-రుక్మిణి దర్శనం</span></div>
+          <div class="place-item"><span class="place-num">4</span> <span class="place-name">ఘృశ్నేశ్వర్</span> <span class="place-tag">- 12వ పవిత్ర జ్యోతిర్లింగం</span></div>
+          <div class="place-item"><span class="place-num">5</span> <span class="place-name">త్రయంబకేశ్వరం</span> <span class="place-tag">- నాసిక్ పవిత్ర జ్యోతిర్లింగం</span></div>
+          <div class="place-item"><span class="place-num">6</span> <span class="place-name">భీమాశంకరం</span> <span class="place-tag">- పూణే సమీప జ్యోతిర్లింగం</span></div>
+          <div class="place-item"><span class="place-num">7</span> <span class="place-name">ఎల్లోరా గుహలు</span> <span class="place-tag">- చారిత్రక కైలాస క్షేత్రం</span></div>
+          <div class="place-item"><span class="place-num">8</span> <span class="place-name">సోమనాథ్</span> <span class="place-tag">- ప్రథమ జ్యోతిర్లింగం (గుజరాత్)</span></div>
+          <div class="place-item"><span class="place-num">9</span> <span class="place-name">నాగేశ్వర్</span> <span class="place-tag">- దారుకావనం జ్యోతిర్లింగం</span></div>
+          <div class="place-item"><span class="place-num">10</span> <span class="place-name">ద్వారకాధీశ మందిరం</span> <span class="place-tag">- గోమతి ద్వారక దర్శనం</span></div>
+        </div>
+
+        <!-- Column 2 (Places 11 - 20) -->
+        <div class="places-col">
+          <div class="place-item"><span class="place-num">11</span> <span class="place-name">బేట్ ద్వారక</span> <span class="place-tag">- శ్రీకృష్ణుని దివ్య మందిరం</span></div>
+          <div class="place-item"><span class="place-num">12</span> <span class="place-name">కాంక్రోలి ద్వారక</span> <span class="place-tag">- రాజస్థాన్ ద్వారకాధీశుడు</span></div>
+          <div class="place-item"><span class="place-num">13</span> <span class="place-name">శ్రీనాథ్ ద్వారక</span> <span class="place-tag">- నాథద్వారా శ్రీనాథ్‌జీ</span></div>
+          <div class="place-item"><span class="place-num">14</span> <span class="place-name">డాకోర్ ద్వారక</span> <span class="place-tag">- శ్రీ రణఛోడ్‌రాయ్‌జీ మందిరం</span></div>
+          <div class="place-item"><span class="place-num">15</span> <span class="place-name">రాంబోడ</span> <span class="place-tag">- ప్రసిద్ధ శ్రీ హనుమాన్ మందిరం</span></div>
+          <div class="place-item"><span class="place-num">16</span> <span class="place-name">నిష్కళంక్ మహాదేవ్</span> <span class="place-tag">- సముద్రంలో స్వయంభూ శివలింగం</span></div>
+          <div class="place-item"><span class="place-num">17</span> <span class="place-name">షిర్డీ</span> <span class="place-tag">- శ్రీ సాయిబాబా పవిత్ర సమాధి మందిరం</span></div>
+          <div class="place-item"><span class="place-num">18</span> <span class="place-name">ఉజ్జయిని మహాకాళేశ్వర్</span> <span class="place-tag">- ప్రసిద్ధ జ్యోతిర్లింగ దర్శనం</span></div>
+          <div class="place-item"><span class="place-num">19</span> <span class="place-name">ఓంకారేశ్వర్</span> <span class="place-tag">- నర్మదా నదీ ద్వీప జ్యోతిర్లింగం</span></div>
+          <div class="place-item"><span class="place-num">20</span> <span class="place-name">పర్లి వైదినాథ్</span> <span class="place-tag">- వైద్యనాథ జ్యోతిర్లింగ క్షేత్రం</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inclusions & Seva Facilities -->
+    <div class="inclusions-card">
+      <div class="inclusions-head">✨ ప్యాకేజీలో కల్పించబడు ప్రత్యేక సౌకర్యాలు & సేవా విశేషాలు ✨</div>
+      <div class="inc-grid">
+        <div class="inc-item">
+          <span style="font-size:22px;">🍲</span>
+          <div><strong>100% సాత్విక భోజనం:</strong> ప్రయాణంలో మా సొంత తెలుగు వంట మనుషులతో ఉదయం టీ, వేడి టిఫిన్, మధ్యాహ్నం సంపూర్ణ భోజనం, రాత్రి చపాతీ/భోజనం.</div>
+        </div>
+        <div class="inc-item">
+          <span style="font-size:22px;">🏨</span>
+          <div><strong>పరిశుభ్రమైన వసతి:</strong> డీలక్స్ AC హోటల్ రూమ్స్ (నలుగురు యాత్రికులకు కలిపి ఒక విశాలమైన అటాచ్డ్ బాత్‌రూమ్ గది).</div>
+        </div>
+        <div class="inc-item">
+          <span style="font-size:22px;">💧</span>
+          <div><strong>స్వచ్ఛమైన తాగునీరు:</strong> ప్రతి రోజూ ప్రతి ఒక్క యాత్రికునికి 1 లీటర్ బ్రాండెడ్ మినరల్ వాటర్ బాటిల్ అందించబడును.</div>
+        </div>
+        <div class="inc-item">
+          <span style="font-size:22px;">🧓</span>
+          <div><strong>మాతృ-పితృ సేవ:</strong> వృద్ధులకు ప్రత్యేక శ్రద్ధ, కుటుంబ సభ్యుల వంటి ఆప్యాయత మరియు ప్రశాంతమైన దర్శన సమయాలు.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms & Guidelines -->
+    <div class="terms-box">
+      <strong>ముఖ్య గమనిక & యాత్రా నిబంధనలు:</strong>
+      <ol class="terms-list">
+        <li>సీట్ రిజర్వేషన్ కొరకు ₹10,000/- అడ్వాన్స్ చెల్లించి మీ పేరు నమోదు చేసుకోగలరు.</li>
+        <li>అన్ని రోజులకు కలిపి డ్రైవర్ బత్తా ₹300/-, వంట సిబ్బందికి ₹200/- ఒకేసారి మాత్రమే చెల్లించవలెను.</li>
+        <li>స్థానిక ఆటోలు, రోప్‌వేలు, పడవలు మరియు దేవాలయ ప్రత్యేక దర్శన టిక్కెట్లు యాత్రికులవే.</li>
+        <li>యాత్ర ప్రశాంతంగా, సజావుగా సాగేందుకు టూర్ మేనేజర్ సూచించిన సమయపాలన పాటించగలరు.</li>
+      </ol>
+    </div>
+
+    <!-- Grand Bottom Contact & Website Footer -->
+    <div class="footer-card">
+      <div class="contact-col">
+        <div class="contact-title">📞 వివరాలు & బుకింగ్స్ కొరకు సంప్రదించండి (రమేష్):</div>
+        <div class="contact-phone">ఫోన్ / WhatsApp: 9030780132</div>
+      </div>
+      <div class="website-pill">
+        🌐 అధికారిక వెబ్‌సైట్: https://jaisrimannarayana.netlify.app
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

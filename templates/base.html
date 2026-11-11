@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hyderabad Pilgrimage Tour Packages | Jai Srimannarayana{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Book sacred pilgrimage tours from Hyderabad with Ramesh. Escorted yatras, 100% Telugu satvik food, elder care, and direct flight options.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}Hyderabad pilgrimage tours, Kashi yatra from Hyderabad, Chardham yatra Hyderabad, Telugu satvik food tour, Ayodhya tour from Hyderabad, Ramesh Telugu traveller, Jai Srimannarayana travels{% endblock %}">
+    <meta name="author" content="Ramesh - Jai Srimannarayana Tours & Travels">
+    <link rel="canonical" href="{% block canonical_url %}https://jaisrimannarayana.netlify.app/{% endblock %}">
+
+    <!-- Open Graph / Facebook / WhatsApp Preview Meta Tags -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="Jai Srimannarayana Tours & Travels">
+    <meta property="og:title" content="{% block og_title %}Hyderabad Pilgrimage Tour Packages | Jai Srimannarayana{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Book sacred pilgrimage tours from Hyderabad with Ramesh. Escorted yatras, 100% Telugu satvik food, elder care, and direct flight options.{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://jaisrimannarayana.netlify.app/{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://jaisrimannarayana.netlify.app/static/images/canva_pilgrimage_banner.png{% endblock %}">
+    <meta property="og:image:alt" content="Jai Srimannarayana Tours & Travels Hyderabad">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Hyderabad Pilgrimage Tour Packages | Jai Srimannarayana{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Book sacred pilgrimage tours from Hyderabad with Ramesh. Escorted yatras, 100% Telugu satvik food, elder care, and direct flight options.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}https://jaisrimannarayana.netlify.app/static/images/canva_pilgrimage_banner.png{% endblock %}">
+
+    <!-- Geographic & Local SEO Tags (Hyderabad, Telangana) -->
+    <meta name="geo.region" content="IN-TG">
+    <meta name="geo.placename" content="Hyderabad">
+    <meta name="geo.position" content="17.3850;78.4867">
+    <meta name="ICBM" content="17.3850, 78.4867">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        },
+                        maroon: {
+                            800: '#800020',
+                            900: '#5c0017',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tiro+Telugu:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-telugu {
+            font-family: 'Tiro Telugu', serif;
+        }
+    </style>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white text-xs sm:text-sm font-medium py-2 px-4 text-center flex items-center justify-center gap-2 shadow-sm">
+        <span>🪔 కార్తీక మాసం & శీతాకాల యాత్రలు! Srisailam, Pancharamalu & Rameswaram Batches Open</span>
+        <span class="hidden md:inline">•</span>
+        <span class="hidden md:inline">Departures from Hyderabad with 100% Telugu Satvik Food</span>
+        <a href="/packages/rameswaram-madurai-kanyakumari" class="ml-2 underline font-bold hover:text-amber-200">View Rameswaram 5-Day &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-105 transition-transform">
+                    🔱
+                </div>
+                <div>
+                    <span class="block font-black text-lg sm:text-xl text-slate-900 tracking-tight leading-tight">JAI SRIMANNARAYANA</span>
+                    <span class="block text-xs font-bold text-amber-700 tracking-wider uppercase">Tours & Travels • Hyderabad</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-5 font-semibold text-sm text-slate-600">
+                <a href="/" class="hover:text-amber-600 transition-colors">Home</a>
+                <a href="/packages/rameswaram-madurai-kanyakumari" class="text-amber-900 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-full font-extrabold text-xs transition-colors flex items-center gap-1 border border-amber-300 shadow-xs">
+                    <span>🚩 Rameswaram 5-Day</span>
+                </a>
+                <a href="/packages/kashi-prayagraj-ayodhya" class="text-amber-700 font-extrabold hover:text-amber-800 transition-colors flex items-center gap-1">
+                    <span>🕉️ Kashi Packages</span>
+                </a>
+                <a href="/destinations" class="hover:text-amber-600 transition-colors">All Destinations</a>
+                <a href="/calculator" class="text-amber-600 font-bold hover:text-amber-700 flex items-center gap-1">
+                    <span>🧮 Budget Calculator</span>
+                </a>
+                <a href="/about" class="hover:text-amber-600 transition-colors">About Ramesh</a>
+                <a href="/contact" class="hover:text-amber-600 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Contact & CTA Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="tel:9030780132" class="hidden sm:flex items-center gap-2 text-slate-700 hover:text-amber-600 font-bold text-sm px-3 py-2 rounded-lg hover:bg-slate-100 transition-all">
+                    <span>📞 9030780132</span>
+                </a>
+                <a href="https://wa.me/919030780132?text=Jai%20Srimannarayana%20Ramesh" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-4 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+                    <span class="text-lg">💬</span>
+                    <span>Chat on WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Floating WhatsApp Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/919030780132?text=Jai%20Srimannarayana%20Ramesh%2C%20I%20am%20visiting%20your%20website%20and%20need%20travel%20assistance" target="_blank" class="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-5 rounded-full shadow-2xl hover:scale-105 transition-all group">
+            <span class="text-2xl animate-pulse">💬</span>
+            <div class="text-left hidden sm:block">
+                <span class="block text-xs uppercase tracking-wider text-emerald-100">Ask Ramesh</span>
+                <span class="block text-sm font-extrabold leading-none">WhatsApp 9030780132</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-600 flex items-center justify-center text-white text-xl">🔱</div>
+                        <span class="font-extrabold text-xl text-white">Jai Srimannarayana Tours & Travels</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-lg mb-6">
+                        Hyderabad's dedicated pilgrimage and family travel network founded by **Ramesh**. Specializing in elder-friendly Chardham Yatras, Divya Kashi, Ayodhya, and sacred pilgrimage circuits with 100% Telugu satvik cooking and Hyderabad departures.
+                    </p>
+                    <div class="flex items-center gap-4 text-sm font-semibold">
+                        <span class="text-amber-400">Official YouTube:</span>
+                        <a href="https://www.youtube.com/@telugutravellerramesh5846" target="_blank" class="text-white hover:underline flex items-center gap-1">
+                            <span>@telugutravellerramesh5846</span> &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Top Hyderabad Routes -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Popular From Hyderabad</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="/packages/rameswaram-madurai-kanyakumari" class="text-amber-300 font-bold hover:underline">🚩 Rameswaram 5-Day Circuit</a></li>
+                        <li><a href="/destinations/india/andhra-pradesh/srisailam-mallikarjuna" class="text-amber-400 font-bold hover:underline">🔱 Srisailam Jyotirlinga (Kartika)</a></li>
+                        <li><a href="/destinations/india/andhra-pradesh/pancharama-kshetras" class="text-amber-400 font-bold hover:underline">🕉️ Pancharama 5 Temples Yatra</a></li>
+                        <li><a href="/packages/kashi-prayagraj-ayodhya" class="hover:text-amber-400 transition-colors">Kashi-Ayodhya 5-Day Package</a></li>
+                        <li><a href="/destinations/india/maharashtra/shirdi-sai-baba" class="hover:text-amber-400 transition-colors">Shirdi & Shani Shingnapur</a></li>
+                        <li><a href="/destinations/india/tamil-nadu/arunachalam-tiruvannamalai" class="hover:text-amber-400 transition-colors">Arunachalam Pournami Special</a></li>
+                        <li><a href="/destinations/india/andhra-pradesh/tirupati-balaji" class="hover:text-amber-400 transition-colors">Tirupati Balaji VIP Darshan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Hyderabad Office & Contacts -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">Quick Links & Desk</h4>
+                    <ul class="space-y-2 text-sm mb-4">
+                        <li><a href="/about" class="hover:text-amber-400 transition-colors">About Ramesh & Seva Mission</a></li>
+                        <li><a href="/contact" class="hover:text-amber-400 transition-colors">Contact & Pickup Hubs</a></li>
+                        <li><a href="/calculator" class="hover:text-amber-400 transition-colors">Travel Budget Calculator</a></li>
+                    </ul>
+                    <p class="text-sm text-slate-400 mb-1">📍 Hyderabad, Telangana</p>
+                    <p class="text-sm text-slate-400 mb-1">📞 Direct Hotline: <a href="tel:9030780132" class="text-white font-bold hover:underline">9030780132</a></p>
+                    <p class="text-sm text-slate-400 mb-3">💬 WhatsApp Booking: 24/7 Available</p>
+                    <div class="p-2.5 bg-slate-800 rounded-xl text-xs text-amber-300 font-medium">
+                        “ధర్మో రక్షతి రక్షితః : భక్తుల సేవయే శ్రీమన్నారాయణ సేవ”
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <span>&copy; 2026 Jai Srimannarayana Tours & Travels. All rights reserved.</span>
+                <span>Hyderabad's Trusted Pilgrimage & Family Tour Specialists.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global YouTube Lightbox Modal (Prevents Error 153 on page load and provides instant fallback) -->
+    <div id="youtubeLightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-red-500 text-xl">▶️</span>
+                    <h3 id="lightboxTitle" class="text-white font-bold text-sm sm:text-base line-clamp-1">YouTube Video</h3>
+                </div>
+                <button onclick="closeVideoPlayer()" class="text-slate-400 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all text-sm font-bold w-9 h-9 flex items-center justify-center" aria-label="Close modal">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Video Player Frame -->
+            <div class="relative aspect-video bg-black w-full">
+                <iframe id="lightboxIframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-slate-950 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+                <span>Official channel: <strong>@telugutravellerramesh5846</strong> (Jai Srimannarayana Tours & Travels)</span>
+                <div class="flex items-center gap-3">
+                    <a id="lightboxDirectBtn" href="#" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 shadow-md">
+                        <span>Watch in YouTube App / Site</span>
+                        <span>&rarr;</span>
+                    </a>
+                    <button onclick="closeVideoPlayer()" class="text-slate-300 hover:text-white px-3 py-2 font-medium">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Video Lightbox Modal Controller
+        function openVideoPlayer(videoId, videoTitle) {
+            const modal = document.getElementById('youtubeLightbox');
+            const iframe = document.getElementById('lightboxIframe');
+            const titleEl = document.getElementById('lightboxTitle');
+            const directBtn = document.getElementById('lightboxDirectBtn');
+
+            if (!modal || !iframe) return;
+
+            titleEl.innerText = videoTitle || 'Jai Srimannarayana Tours & Travels';
+            directBtn.href = `https://www.youtube.com/watch?v=${videoId}`;
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoPlayer() {
+            const modal = document.getElementById('youtubeLightbox');
+            const iframe = document.getElementById('lightboxIframe');
+            
+            if (!modal || !iframe) return;
+
+            iframe.src = '';
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeVideoPlayer();
+        });
+    </script>
+</body>
+</html>

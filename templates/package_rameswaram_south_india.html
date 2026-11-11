@@ -1,0 +1,400 @@
+{% extends "base.html" %}
+
+{% block title %}Rameswaram Madurai Kanyakumari Tour from Hyderabad | JSN{% endblock %}
+{% block meta_description %}5-Day South India spiritual pilgrimage from Hyderabad. Direct flights to Madurai, 22 teertha snanams, Dhanushkodi, and authentic Telugu satvik food.{% endblock %}
+{% block canonical_url %}https://jaisrimannarayana.netlify.app/packages/rameswaram-madurai-kanyakumari/{% endblock %}
+
+{% block og_title %}Rameswaram, Madurai & Kanyakumari 5-Day Tour from Hyderabad | Jai Srimannarayana{% endblock %}
+{% block og_description %}All-inclusive 5-day South India pilgrimage departing from Hyderabad. Direct flights, 22 teertha snanams, Dhanushkodi, Vivekananda Rock, and Telugu satvik meals.{% endblock %}
+{% block og_url %}https://jaisrimannarayana.netlify.app/packages/rameswaram-madurai-kanyakumari/{% endblock %}
+{% block og_image %}https://jaisrimannarayana.netlify.app/static/images/canva_rameswaram_banner.png{% endblock %}
+
+{% block twitter_title %}Rameswaram, Madurai & Kanyakumari 5-Day Tour from Hyderabad{% endblock %}
+{% block twitter_description %}All-inclusive 5-day tour departing from Hyderabad with Telugu satvik food and elder care.{% endblock %}
+{% block twitter_image %}https://jaisrimannarayana.netlify.app/static/images/canva_rameswaram_banner.png{% endblock %}
+
+{% block extra_head %}
+<!-- Structured Data (Schema.org JSON-LD) for TouristTrip & Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TouristTrip",
+      "@id": "https://jaisrimannarayana.netlify.app/packages/rameswaram-madurai-kanyakumari/#trip",
+      "name": "Rameswaram, Madurai & Kanyakumari 5-Day Tour Package from Hyderabad",
+      "description": "Comprehensive 5-day South India pilgrimage from Hyderabad covering Madurai Meenakshi Amman Temple, Rameswaram Ramanathaswamy Jyotirlinga 22 teertha snanams, Dhanushkodi Ram Setu, and Kanyakumari Vivekananda Rock with authentic Telugu satvik bhojanam and senior citizen assistance.",
+      "touristType": ["Pilgrims", "Devotees", "Senior Citizens", "Families"],
+      "itinerary": {
+        "@type": "ItemList",
+        "numberOfItems": 5,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Day 1: Hyderabad to Madurai Direct Flight & Meenakshi Amman VIP Darshan"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Day 2: Sacred 22 Teertha Snanam & Ramanathaswamy Jyotirlinga Darshan"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Day 3: Dhanushkodi Ram Setu, APJ Abdul Kalam Memorial & Drive to Kanyakumari"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Day 4: Kanyakumari Sunrise, Vivekananda Rock Memorial & Triveni Sangam Sunset"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Day 5: Suchindram Thanumalayan Temple & Return Flight to Hyderabad"
+          }
+        ]
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "lowPrice": "19500",
+        "highPrice": "34500",
+        "offerCount": "3"
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Jai Srimannarayana Tours & Travels",
+        "telephone": "+919030780132",
+        "url": "https://jaisrimannarayana.netlify.app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://jaisrimannarayana.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Packages",
+          "item": "https://jaisrimannarayana.netlify.app/destinations"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rameswaram Madurai Kanyakumari 5-Day Tour",
+          "item": "https://jaisrimannarayana.netlify.app/packages/rameswaram-madurai-kanyakumari/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb Header -->
+<div class="bg-amber-50/60 border-b border-amber-200/60 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs font-semibold text-slate-600 flex items-center gap-2">
+        <a href="/" class="hover:text-amber-800">Home</a>
+        <span>/</span>
+        <a href="/destinations" class="hover:text-amber-800">Packages</a>
+        <span>/</span>
+        <span class="font-bold text-slate-900">Rameswaram • Madurai • Kanyakumari 5-Day Circuit</span>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="relative bg-slate-950 text-white py-16 sm:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-25">
+        <img 
+            src="/static/images/rameswaram_temple.jpg" 
+            alt="Rameswaram Ramanathaswamy Temple Corridor" 
+            width="1600"
+            height="800"
+            fetchpriority="high"
+            class="w-full h-full object-cover"
+        >
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold mb-4">
+            <span>🚩 5-Day South India Winter Circuit from Hyderabad</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-4">
+            Rameswaram • Madurai • Kanyakumari <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-amber-200">
+                5-Day Sacred Circuit from Hyderabad
+            </span>
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed mb-8">
+            Experience the sacred 22 Teertha Snanam at Rameswaram Jyotirlinga, divine blessings of Goddess Meenakshi in Madurai, Ram Setu at Dhanushkodi, and sunset at the Triveni Sangam of three oceans in Kanyakumari. Fully escorted by Ramesh with 100% Telugu satvik food and dedicated care for elderly parents.
+        </p>
+
+        <!-- Quick Facts Pill Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-xs font-bold mb-8">
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15">
+                <span class="text-amber-300 block text-[10px] uppercase">Duration</span>
+                <span>5 Days / 4 Nights</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15">
+                <span class="text-amber-300 block text-[10px] uppercase">Starting Point</span>
+                <span>Hyderabad (HYD / SC)</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15">
+                <span class="text-amber-300 block text-[10px] uppercase">Telugu Food</span>
+                <span>100% Satvik Daily Cook</span>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15">
+                <span class="text-amber-300 block text-[10px] uppercase">Elder Assistance</span>
+                <span>Matru-Pitru Seva</span>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20want%20details%20for%20the%205-Day%20Rameswaram%20Madurai%20Kanyakumari%20Tour%20from%20Hyderabad." target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl text-sm transition-all shadow-lg">
+                <span>💬 Book on WhatsApp with Ramesh</span>
+                <span>&rarr;</span>
+            </a>
+            <a href="tel:9030780132" class="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-sm border border-white/20 transition-all">
+                <span>📞 Call +91 90307 80132</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Tiers Section -->
+<section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-800">Clear All-Inclusive Pricing in INR</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Select Your Travel Comfort Tier</h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">No hidden entrance fees or unexpected charges. All prices per pilgrim based on twin/triple sharing.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Tier 1: Economy Train -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">Economy Tier</span>
+                    <h3 class="text-xl font-black text-slate-900 mt-1">Train Circuit</h3>
+                    <div class="text-3xl font-black text-slate-900 my-3">₹19,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                    <ul class="text-xs space-y-2 text-slate-700 border-t border-slate-100 pt-3">
+                        <li class="flex items-center gap-1.5">✓ 3-Tier AC Train (Secunderabad - Rameswaram)</li>
+                        <li class="flex items-center gap-1.5">✓ AC 3-Star Hotel Rooms</li>
+                        <li class="flex items-center gap-1.5">✓ 22 Teertha Snanam Guidance</li>
+                        <li class="flex items-center gap-1.5">✓ Fresh Telugu Satvik Bhojanam Daily</li>
+                        <li class="flex items-center gap-1.5">✓ AC Coach Road Transit</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20want%20to%20book%20Economy%20Train%20Package%20for%20Rameswaram%20Circuit%20(Rs%2019,500)." target="_blank" class="mt-6 block text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition-all">
+                    Book Economy Tier &rarr;
+                </a>
+            </div>
+
+            <!-- Tier 2: Comfort Flight (Popular) -->
+            <div class="bg-gradient-to-b from-amber-50 to-orange-50/40 rounded-2xl p-6 border-2 border-amber-500 shadow-md flex flex-col justify-between relative">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[10px] font-black uppercase px-3 py-0.5 rounded-full shadow">
+                    Most Popular for Families
+                </span>
+                <div>
+                    <span class="text-xs font-bold text-amber-900 uppercase tracking-wider block">Comfort Tier</span>
+                    <h3 class="text-xl font-black text-slate-900 mt-1">Direct Flight Option</h3>
+                    <div class="text-3xl font-black text-amber-950 my-3">₹28,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                    <ul class="text-xs space-y-2 text-slate-800 border-t border-amber-200/60 pt-3">
+                        <li class="flex items-center gap-1.5">✓ Direct Flight from RGIA Hyderabad to Madurai</li>
+                        <li class="flex items-center gap-1.5">✓ Return Flight from Trivandrum / Madurai</li>
+                        <li class="flex items-center gap-1.5">✓ Madurai Meenakshi VIP Darshan Pass</li>
+                        <li class="flex items-center gap-1.5">✓ 3-Star Superior Hotels with Elevators</li>
+                        <li class="flex items-center gap-1.5">✓ Daily Telugu Satvik Meals with Sweet</li>
+                        <li class="flex items-center gap-1.5">✓ Dhanushkodi 4x4 Beach Transfer</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20want%20to%20book%20Comfort%20Flight%20Package%20for%20Rameswaram%20Circuit%20(Rs%2028,500)." target="_blank" class="mt-6 block text-center py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs transition-all shadow">
+                    Book Comfort Flight &rarr;
+                </a>
+            </div>
+
+            <!-- Tier 3: Senior VIP -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">Senior Citizen Special</span>
+                    <h3 class="text-xl font-black text-slate-900 mt-1">Matru-Pitru VIP Care</h3>
+                    <div class="text-3xl font-black text-slate-900 my-3">₹34,500 <span class="text-xs font-normal text-slate-500">/ person</span></div>
+                    <ul class="text-xs space-y-2 text-slate-700 border-t border-slate-100 pt-3">
+                        <li class="flex items-center gap-1.5">✓ RGIA Airport Wheelchair Escort</li>
+                        <li class="flex items-center gap-1.5">✓ Guaranteed Ground Floor Hotel Rooms</li>
+                        <li class="flex items-center gap-1.5">✓ Dedicated Helper for 22 Teertha Snanam</li>
+                        <li class="flex items-center gap-1.5">✓ Private AC Innova Seating</li>
+                        <li class="flex items-center gap-1.5">✓ All VIP Darshan Passes & Battery Carts</li>
+                        <li class="flex items-center gap-1.5">✓ 24/7 Medical & Oxygen Kit on Board</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20I%20want%20to%20book%20Senior%20VIP%20Care%20Package%20for%20my%20parents%20(Rs%2034,500)." target="_blank" class="mt-6 block text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition-all">
+                    Book Senior VIP Care &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detailed 5-Day Itinerary Section -->
+<section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-800">Day by Day Schedule</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">The 5-Day Sacred Circuit Itinerary</h2>
+        <p class="text-sm text-slate-600 mt-2">Planned with comfortable driving hours, leisurely temple darshans, and zero rushed queues.</p>
+    </div>
+
+    <div class="space-y-8">
+        <!-- Day 1 -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6">
+            <div class="sm:w-28 flex-shrink-0">
+                <span class="inline-block px-3 py-1 rounded-lg bg-red-100 text-red-800 text-xs font-black uppercase">Day 1</span>
+                <span class="block text-xs font-bold text-slate-400 mt-1">Madurai Arrival</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-slate-900">Hyderabad to Madurai & Goddess Meenakshi VIP Darshan</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Morning departure from Rajiv Gandhi International Airport (HYD) on direct IndiGo flight to Madurai. Check-in at hotel, freshen up, and savor hot Telugu meals. Afternoon special VIP darshan of Sri Meenakshi Sundareswarar Temple admiring the 1,000-pillar hall. Evening scenic drive to Rameswaram island across the famous Pamban Sea Bridge. Check-in at hotel in Rameswaram.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-semibold text-slate-700">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">✈️ Direct Flight (1h 40m)</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🛕 Meenakshi VIP Entry</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🌉 Pamban Bridge Sunset</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6">
+            <div class="sm:w-28 flex-shrink-0">
+                <span class="inline-block px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-black uppercase">Day 2</span>
+                <span class="block text-xs font-bold text-slate-400 mt-1">Rameswaram</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-slate-900">Sacred 22 Teertha Snanam & Ramanathaswamy Jyotirlinga Darshan</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Early morning holy sea bath at Agnitheertham. Enter Sri Ramanathaswamy Temple where dedicated assistants help our pilgrims complete all 22 sacred well snanams (from Mahalakshmi to Koti Teertham). Change into dry clothes and proceed for Sparsha Darshanam of the Jyotirlingam established by Lord Sri Rama. Walk through the majestic third corridor of 1,212 granite pillars. Evening visit to Ramar Padam (footprints of Lord Rama) with panoramic island views.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-semibold text-slate-700">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🌊 22 Teertha Snanam</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🔱 Ramanathaswamy Darshan</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🍛 Hot Telugu Satvik Meals</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6">
+            <div class="sm:w-28 flex-shrink-0">
+                <span class="inline-block px-3 py-1 rounded-lg bg-sky-100 text-sky-800 text-xs font-black uppercase">Day 3</span>
+                <span class="block text-xs font-bold text-slate-400 mt-1">Dhanushkodi</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-slate-900">Dhanushkodi Ram Setu, APJ Abdul Kalam Memorial & Kanyakumari Drive</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Post breakfast, embark on coastal journey to Dhanushkodi ghost town and Arichal Munai, where the calm waters of the Bay of Bengal meet the waves of the Indian Ocean. Witness the starting rocks of the legendary Ram Setu (Adam's Bridge). On the return, pay homage at the inspiring Dr. APJ Abdul Kalam National Memorial. Enjoy a hearty Telugu lunch before boarding our comfortable AC coach for the scenic drive to Kanyakumari at India's southern tip.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-semibold text-slate-700">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🏝️ Arichal Munai (Ram Setu)</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🏛️ Kalam National Memorial</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🚌 Highway Drive to Cape</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6">
+            <div class="sm:w-28 flex-shrink-0">
+                <span class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-black uppercase">Day 4</span>
+                <span class="block text-xs font-bold text-slate-400 mt-1">Kanyakumari</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-slate-900">Kanyakumari Sunrise, Vivekananda Rock Memorial & Triveni Sangam Sunset</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Witness the breathtaking sunrise over the Indian Ocean horizon. After breakfast, board the ferry to the iconic Vivekananda Rock Memorial and the 133-foot Thiruvalluvar Statue. Visit the ancient 3,000-year-old Sri Kanyakumari Bhagavathi Amman Temple with priority entry. Rest in the afternoon. At dusk, experience the spectacular sunset where three bodies of water (Bay of Bengal, Arabian Sea, and Indian Ocean) converge at Triveni Sangam.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-semibold text-slate-700">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🌅 Ocean Sunrise & Sunset</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🚢 Vivekananda Ferry</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🛕 Bhagavathi Amman Temple</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6">
+            <div class="sm:w-28 flex-shrink-0">
+                <span class="inline-block px-3 py-1 rounded-lg bg-purple-100 text-purple-800 text-xs font-black uppercase">Day 5</span>
+                <span class="block text-xs font-bold text-slate-400 mt-1">Return Home</span>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold text-slate-900">Suchindram Temple & Return to Hyderabad with Sacred Theertham</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Morning visit to the magnificent Suchindram Thanumalayan Temple, famous for musical pillars and the 22-foot monolithic Hanuman statue representing the Trinity of Shiva, Vishnu, and Brahma in a single lingam. Savor farewell Telugu satvik lunch. Transfer to Trivandrum Airport (TRV - 85 km) or Madurai Airport for direct flight back to Rajiv Gandhi International Airport, Hyderabad. Return with bottles of holy 22 Teertham and lifelong memories.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-semibold text-slate-700">
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">🛕 Suchindram Musical Pillars</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">✈️ Return to Hyderabad</span>
+                    <span class="bg-slate-100 px-2.5 py-1 rounded-md">💧 Holy 22 Teertham Bottles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Matru-Pitru Seva Features Section -->
+<section class="py-12 bg-emerald-50/60 border-t border-b border-emerald-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-800">Elderly Pilgrim Care</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Why Children Send Their Parents with Ramesh</h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">We treat every senior devotee with the dignity and attentiveness of our own parents.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm">
+                <div class="text-2xl mb-2">🍲</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1">100% Satvik Telugu Bhojanam</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">Hot rice, fresh sambar, spicy rasam, curd rice, and freshly fried appadalu cooked by our traveling cook without onion or garlic.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm">
+                <div class="text-2xl mb-2">🛗</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1">Guaranteed Ground Floor / Lift</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">No climbing stairs with knee pain. Every hotel in Madurai, Rameswaram, and Kanyakumari is inspected by Ramesh for working elevators and western toilets.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm">
+                <div class="text-2xl mb-2">🤝</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1">Personal 22-Well Snanam Helpers</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">Navigating 22 water stations on wet stone corridors is risky for elders. Ramesh provides helpers to carry water and assist seniors at every well.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Direct Booking CTA Bar -->
+<section class="py-12 bg-slate-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-extrabold mb-3">Upcoming Winter Departure Dates</h2>
+        <p class="text-sm text-slate-300 max-w-xl mx-auto mb-6">
+            Batches are limited to 20 pilgrims to ensure personal care and unhurried temple darshans. Contact Ramesh directly to confirm your seats.
+        </p>
+        <div class="inline-flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/919030780132?text=Namaste%20Ramesh%20garu,%20please%20send%20the%20upcoming%20winter%20dates%20for%20Rameswaram%20Madurai%20Kanyakumari%20yatra." target="_blank" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl text-sm transition-all shadow-lg flex items-center gap-2">
+                <span>💬 WhatsApp Ramesh for Dates (+91 90307 80132)</span>
+            </a>
+            <a href="/calculator" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-sm border border-white/20 transition-all">
+                <span>💰 Estimate Family Budget in INR</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
