@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/logo.png" alt="jsn-tours-ai-business-engine Logo" width="160" />
+</p>
+
 # 🔱 Jai Srimannarayana Tours & Travels — AI Business Engine
 ### Scaling Hyderabad's Premier Pilgrimage Tour Operator to ₹100 Crore ARR
 

@@ -364,6 +364,12 @@ async def package_rameswaram_page(request: Request):
     return templates.TemplateResponse(request=request, name="package_rameswaram_south_india.html")
 
 
+@app.get("/packages/7-jyotirlingas-5-dwarakas")
+async def package_7jyotirlingas_5dwarakas_page(request: Request):
+    """7 Jyotirlingas & 5 Dwarakas Grand 20-Kshetra Yatra from Hyderabad & Siddipet."""
+    return templates.TemplateResponse(request=request, name="package_7jyotirlingas_5dwarakas.html")
+
+
 @app.get("/about")
 async def about_page(request: Request):
     """About Ramesh and Jai Srimannarayana Tours & Travels."""

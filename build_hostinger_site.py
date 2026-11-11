@@ -47,7 +47,18 @@ def build_site():
 
     # 1. Clean and initialize output folder
     if os.path.exists(OUTPUT_DIR):
-        shutil.rmtree(OUTPUT_DIR)
+        def _handle_remove_readonly(func, path, exc):
+            import stat
+            try:
+                os.chmod(path, stat.S_IWRITE)
+                func(path)
+            except Exception:
+                pass
+
+        try:
+            shutil.rmtree(OUTPUT_DIR, onexc=_handle_remove_readonly)
+        except TypeError:
+            shutil.rmtree(OUTPUT_DIR, onerror=_handle_remove_readonly)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     print(f"[INIT] Output directory: {OUTPUT_DIR}")
 
@@ -148,6 +159,11 @@ def build_site():
         ram_html = ram_tmpl.render()
         save_page(os.path.join("packages", "rameswaram-madurai-kanyakumari", "index.html"), ram_html)
         sitemap_urls.append("packages/rameswaram-madurai-kanyakumari")
+
+        jyotirlinga_tmpl = env.get_template("package_7jyotirlingas_5dwarakas.html")
+        jyotirlinga_html = jyotirlinga_tmpl.render()
+        save_page(os.path.join("packages", "7-jyotirlingas-5-dwarakas", "index.html"), jyotirlinga_html)
+        sitemap_urls.append("packages/7-jyotirlingas-5-dwarakas")
 
         # -------------------------------------------------------------
         # C2. Render About & Contact Pages

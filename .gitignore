@@ -9,3 +9,7 @@ scratch/
 *.jpg
 *.png
 .DS_Store
+
+!assets/logo.png
+!assets/
+!assets/**

@@ -176,6 +176,19 @@ def test_rameswaram_package_page():
     print("[PASS] test_rameswaram_package_page passed.")
 
 
+def test_package_7jyotirlingas_5dwarakas():
+    response = client.get("/packages/7-jyotirlingas-5-dwarakas")
+    assert response.status_code == 200
+    html = response.text
+    assert "7 జ్యోతిర్లింగాలు" in html or "7 Jyotirlingas" in html
+    assert "5 ద్వారకల" in html or "5 Dwarakas" in html
+    assert "32,000" in html
+    assert "9030780132" in html
+    assert "business_flyer_7jyotirlinga_hd.png" in html
+    assert "Siddipet" in html or "సిద్దిపేట" in html
+    print("[PASS] test_package_7jyotirlingas_5dwarakas passed.")
+
+
 def test_rameswaram_destination_page():
     response = client.get("/destinations/india/tamil-nadu/rameswaram")
     assert response.status_code == 200
@@ -236,6 +249,7 @@ if __name__ == "__main__":
     test_package_kashi_ayodhya()
     test_diwali_package_page()
     test_rameswaram_package_page()
+    test_package_7jyotirlingas_5dwarakas()
     test_rameswaram_destination_page()
     test_srisailam_page()
     test_pancharama_page()
