@@ -13,3 +13,8 @@ scratch/
 !assets/logo.png
 !assets/
 !assets/**
+
+# media / private
+*.jpeg
+*.zip
+*.mp3

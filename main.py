@@ -11,12 +11,15 @@ Handles:
 
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
+import hashlib
+import hmac
+import json
 import logging
 import os
 from typing import Any, Dict, List, Optional
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
-from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Query, Request, Response, status
+from fastapi import BackgroundTasks, Depends, FastAPI, Header, HTTPException, Query, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
@@ -46,12 +49,25 @@ logger = logging.getLogger("PilgrimageWebhook")
 logging.basicConfig(level=logging.INFO)
 
 # Environment variables
-WHATSAPP_VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "***REMOVED***")
+WHATSAPP_VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "")
+WHATSAPP_APP_SECRET = os.getenv("WHATSAPP_APP_SECRET", "")
+ALLOWED_ORIGINS = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "").split(",") if o.strip()]
 WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN", "")
 WHATSAPP_PHONE_NUMBER_ID = os.getenv("WHATSAPP_PHONE_NUMBER_ID", "")
 BUSINESS_PHONE = os.getenv("BUSINESS_PHONE", "9030780132")
 BUSINESS_NAME = os.getenv("BUSINESS_NAME", "Jai Srimannarayana Tours & Travels")
 ENABLE_DAILY_SCHEDULER = os.getenv("ENABLE_DAILY_SCHEDULER", "true").lower() == "true"
+
+
+
+def require_api_key(x_api_key: Optional[str] = Header(None, alias="X-API-Key")):
+    """Dependency: require X-API-Key header matching ADMIN_API_KEY env var."""
+    expected = os.getenv("ADMIN_API_KEY", "")
+    if not expected:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Admin API key not configured")
+    if not x_api_key or not hmac.compare_digest(x_api_key.encode("utf-8"), expected.encode("utf-8")):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid or missing API key")
+
 
 # Cache for deduplicating incoming WhatsApp messages
 processed_message_ids = set()
@@ -106,7 +122,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -181,8 +197,13 @@ async def verify_webhook(
     Meta WhatsApp Cloud API Webhook Verification Endpoint.
     Echoes back hub.challenge when hub.verify_token matches WHATSAPP_VERIFY_TOKEN.
     """
-    logger.info(f"Webhook verification request received: mode={hub_mode}, token={hub_verify_token}")
-    if hub_mode == "subscribe" and hub_verify_token == WHATSAPP_VERIFY_TOKEN:
+    logger.info(f"Webhook verification request received: mode={hub_mode}")
+    if (
+        WHATSAPP_VERIFY_TOKEN
+        and hub_mode == "subscribe"
+        and hub_verify_token is not None
+        and hmac.compare_digest(hub_verify_token.encode("utf-8"), WHATSAPP_VERIFY_TOKEN.encode("utf-8"))
+    ):
         logger.info("Webhook verified successfully with Meta!")
         return PlainTextResponse(content=hub_challenge or "", status_code=status.HTTP_200_OK)
 
@@ -204,8 +225,18 @@ async def receive_webhook_event(
     Parses incoming user messages, feeds multi-turn history into the Sales Agent,
     persists extracted structured leads into SQLite, and dispatches the devotional reply.
     """
+    raw_body = await request.body()
+    signature = request.headers.get("X-Hub-Signature-256", "")
+    if not WHATSAPP_APP_SECRET:
+        logger.error("WHATSAPP_APP_SECRET not configured; rejecting webhook event.")
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Signature verification unavailable")
+    expected_sig = "sha256=" + hmac.new(WHATSAPP_APP_SECRET.encode("utf-8"), raw_body, hashlib.sha256).hexdigest()
+    if not signature or not hmac.compare_digest(signature.encode("utf-8"), expected_sig.encode("utf-8")):
+        logger.warning("Webhook event rejected: invalid X-Hub-Signature-256.")
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid signature")
+
     try:
-        body = await request.json()
+        body = json.loads(raw_body)
     except Exception:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid JSON payload")
 
@@ -457,8 +488,8 @@ class UniversalQueryRequest(BaseModel):
     query: str
 
 
-@app.post("/agent-team/execute")
-@app.post("/ask")
+@app.post("/agent-team/execute", dependencies=[Depends(require_api_key)])
+@app.post("/ask", dependencies=[Depends(require_api_key)])
 async def execute_agent_team(
     payload: UniversalQueryRequest,
     db: Session = Depends(get_db),
@@ -476,7 +507,7 @@ async def execute_agent_team(
     return result.model_dump()
 
 
-@app.get("/daily-briefing")
+@app.get("/daily-briefing", dependencies=[Depends(require_api_key)])
 async def get_daily_briefing(db: Session = Depends(get_db)):
     """
     Triggers the CEO Agent (Orchestrator) to synthesize:
@@ -497,7 +528,7 @@ async def get_daily_briefing(db: Session = Depends(get_db)):
     }
 
 
-@app.post("/marketing/generate")
+@app.post("/marketing/generate", dependencies=[Depends(require_api_key)])
 async def trigger_marketing_generation(db: Session = Depends(get_db)):
     """
     Triggers the Marketing Agent to generate 3 daily YouTube Shorts scripts.
@@ -510,14 +541,14 @@ async def trigger_marketing_generation(db: Session = Depends(get_db)):
     }
 
 
-@app.get("/marketing/scripts")
+@app.get("/marketing/scripts", dependencies=[Depends(require_api_key)])
 async def list_marketing_scripts(limit: int = 10, db: Session = Depends(get_db)):
     """Lists recent YouTube Shorts scripts."""
     scripts = db.query(MarketingContent).order_by(MarketingContent.id.desc()).limit(limit).all()
     return {"count": len(scripts), "scripts": [s.to_dict() for s in scripts]}
 
 
-@app.post("/expansion/generate")
+@app.post("/expansion/generate", dependencies=[Depends(require_api_key)])
 async def trigger_expansion_pitch(
     route: Optional[str] = Query(None, description="Optional custom route name"),
     db: Session = Depends(get_db),
@@ -532,14 +563,14 @@ async def trigger_expansion_pitch(
     }
 
 
-@app.get("/expansion/pitches")
+@app.get("/expansion/pitches", dependencies=[Depends(require_api_key)])
 async def list_expansion_pitches(limit: int = 5, db: Session = Depends(get_db)):
     """Lists recent expansion route pitches."""
     pitches = db.query(ExpansionPitch).order_by(ExpansionPitch.id.desc()).limit(limit).all()
     return {"count": len(pitches), "pitches": [p.to_dict() for p in pitches]}
 
 
-@app.get("/leads")
+@app.get("/leads", dependencies=[Depends(require_api_key)])
 async def list_leads(
     status: Optional[str] = None,
     is_qualified: Optional[bool] = None,
@@ -556,7 +587,7 @@ async def list_leads(
     return {"count": len(leads), "leads": [l.to_dict() for l in leads]}
 
 
-@app.get("/leads/{phone_number}")
+@app.get("/leads/{phone_number}", dependencies=[Depends(require_api_key)])
 async def get_lead_details(phone_number: str, db: Session = Depends(get_db)):
     """Retrieves lead profile and complete WhatsApp conversation history."""
     lead = db.query(Lead).filter(Lead.phone_number == phone_number).first()
